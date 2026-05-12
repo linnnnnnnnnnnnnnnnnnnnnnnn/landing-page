@@ -1,119 +1,147 @@
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
+'use strict';
 
-// Scroll to section helper
+// ── Navbar scroll ──
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  navbar.classList.toggle('scrolled', y > 50);
+  lastScroll = y;
+}, { passive: true });
+
+// ── Scroll helpers ──
+function scrollToContact() {
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 function scrollTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
-function scrollToContact() {
-  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+
+// ── Reveal on scroll ──
+const revealEls = document.querySelectorAll('.reveal, .reveal-right');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const siblings = [...(entry.target.parentElement?.querySelectorAll('.reveal, .reveal-right') || [])];
+    const idx = siblings.indexOf(entry.target);
+    const base = parseFloat(getComputedStyle(entry.target).transitionDelay) || 0;
+    entry.target.style.transitionDelay = `${base + idx * 0.09}s`;
+    entry.target.classList.add('visible');
+    io.unobserve(entry.target);
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+// ── Hero counter (₪200,000) ──
+const heroCounter = document.getElementById('heroCounter');
+if (heroCounter) {
+  setTimeout(() => {
+    animateNum(heroCounter, 200000, 1600, v => v.toLocaleString('he-IL'));
+  }, 600);
 }
 
-// Scroll reveal via IntersectionObserver
-const revealEls = document.querySelectorAll('.reveal, .reveal-delay');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      // Stagger children in the same parent
-      const siblings = [...entry.target.parentElement.querySelectorAll('.reveal, .reveal-delay')];
-      const idx = siblings.indexOf(entry.target);
-      entry.target.style.transitionDelay = `${idx * 0.08}s`;
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-revealEls.forEach(el => revealObserver.observe(el));
-
-// Animated counters
-const statNums = document.querySelectorAll('.stat-num');
-const counterObserver = new IntersectionObserver((entries) => {
+// ── Stats counters ──
+const statNums = document.querySelectorAll('[data-target]');
+const counterIO = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    animateNum(el, parseInt(el.dataset.target), 1800);
+    counterIO.unobserve(el);
   });
 }, { threshold: 0.5 });
-statNums.forEach(el => counterObserver.observe(el));
+statNums.forEach(el => counterIO.observe(el));
 
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const duration = 1800;
+function animateNum(el, target, duration, format = v => v) {
   const start = performance.now();
-  function step(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target);
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target;
-  }
-  requestAnimationFrame(step);
+  const raf = (now) => {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 4);
+    el.textContent = format(Math.floor(eased * target));
+    if (p < 1) requestAnimationFrame(raf);
+    else el.textContent = format(target);
+  };
+  requestAnimationFrame(raf);
 }
 
-// Form validation & submit
+// ── Form ──
 function handleSubmit(e) {
   e.preventDefault();
-  let valid = true;
+  let ok = true;
 
-  const fields = [
-    { id: 'fname',   errId: 'err-fname',   msg: 'נא להזין שם מלא' },
-    { id: 'fphone',  errId: 'err-fphone',  msg: 'נא להזין מספר טלפון' },
-    { id: 'fcar',    errId: 'err-fcar',    msg: 'נא להזין דגם הרכב' },
-    { id: 'famount', errId: 'err-famount', msg: 'נא להזין סכום הלוואה' },
+  const rules = [
+    { id: 'fname',   err: 'err-fname',   msg: 'נא להזין שם מלא',        test: v => v.length > 1 },
+    { id: 'fphone',  err: 'err-fphone',  msg: 'נא להזין מספר טלפון',    test: v => v.length > 1 },
+    { id: 'fcar',    err: 'err-fcar',    msg: 'נא להזין דגם הרכב',      test: v => v.length > 1 },
+    { id: 'famount', err: 'err-famount', msg: 'נא להזין סכום הלוואה',   test: v => v.length > 0 && Number(v) >= 5000 },
   ];
 
-  fields.forEach(({ id, errId, msg }) => {
+  rules.forEach(({ id, err, msg, test }) => {
     const input = document.getElementById(id);
-    const err = document.getElementById(errId);
-    const empty = !input.value.trim();
-    input.classList.toggle('error', empty);
-    err.textContent = empty ? msg : '';
-    if (empty) valid = false;
+    const errEl = document.getElementById(err);
+    const val = input.value.trim();
+    const invalid = !test(val);
+    input.classList.toggle('error', invalid);
+    errEl.textContent = invalid ? msg : '';
+    if (invalid) ok = false;
   });
 
-  // Phone format check
-  const phone = document.getElementById('fphone');
-  if (phone.value.trim() && !/^0\d{1,2}[-\s]?\d{7}$/.test(phone.value.trim())) {
-    phone.classList.add('error');
-    document.getElementById('err-fphone').textContent = 'מספר טלפון לא תקין';
-    valid = false;
+  // Phone pattern
+  const phoneEl = document.getElementById('fphone');
+  if (!phoneEl.classList.contains('error')) {
+    const valid = /^0\d[\d\s\-]{7,9}$/.test(phoneEl.value.trim());
+    if (!valid) {
+      phoneEl.classList.add('error');
+      document.getElementById('err-fphone').textContent = 'פורמט טלפון לא תקין';
+      ok = false;
+    }
   }
 
-  if (!valid) return;
+  if (!ok) return;
 
-  // Simulate async submit
+  // Loading state
   const btn = document.getElementById('submitBtn');
-  const text = document.getElementById('submitText');
-  const spinner = document.getElementById('submitSpinner');
+  const txt = document.getElementById('submitText');
+  const arr = document.getElementById('submitArrow');
+  const spin = document.getElementById('submitSpinner');
   btn.disabled = true;
-  text.classList.add('hidden');
-  spinner.classList.remove('hidden');
+  txt.textContent = 'שולח...';
+  arr?.classList.add('hidden');
+  spin.classList.remove('hidden');
 
   setTimeout(() => {
     btn.disabled = false;
-    text.classList.remove('hidden');
-    spinner.classList.add('hidden');
+    txt.textContent = 'שלח פנייה';
+    arr?.classList.remove('hidden');
+    spin.classList.add('hidden');
     document.getElementById('contactForm').reset();
     showToast();
-  }, 1600);
+  }, 1800);
 }
 
 function showToast() {
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 4000);
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4500);
 }
 
-// Clear field errors on input
-document.querySelectorAll('.field input, .field textarea').forEach(input => {
-  input.addEventListener('input', () => {
-    input.classList.remove('error');
-    const errEl = document.getElementById('err-' + input.id.replace('f', 'f'));
+// Clear errors on input
+document.querySelectorAll('.fld input, .fld textarea').forEach(el => {
+  el.addEventListener('input', () => {
+    el.classList.remove('error');
+    const errEl = document.getElementById('err-' + el.id);
     if (errEl) errEl.textContent = '';
+  });
+});
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });

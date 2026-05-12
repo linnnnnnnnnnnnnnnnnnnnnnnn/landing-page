@@ -4,208 +4,333 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>נקודת זינוק — הלוואה כנגד שיעבוד רכב</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <div class="nav-logo">נקודת זינוק 🚗</div>
+      <div class="nav-logo">
+        <span class="logo-mark">NZ</span>
+        <span class="logo-text">נקודת זינוק</span>
+      </div>
       <div class="nav-links">
-        <a href="#how">איך זה עובד?</a>
-        <a href="#stats">למה אנחנו?</a>
-        <a href="#reviews">ביקורות</a>
-        <a href="#contact" class="nav-cta">קבל הצעה</a>
+        <a href="#how">תהליך</a>
+        <a href="#why">יתרונות</a>
+        <a href="#reviews">לקוחות</a>
+        <a href="#contact" class="nav-cta">
+          <span>קבל הצעה</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <div class="hero-bg">
-      <div class="blob blob1"></div>
-      <div class="blob blob2"></div>
-      <div class="blob blob3"></div>
-    </div>
-    <div class="hero-content reveal">
-      <div class="hero-badge">✦ מהיר · בטוח · מקצועי</div>
-      <h1>הרכב שלך<br><span class="accent">= הון מיידי</span></h1>
-      <p>קבל הלוואה כנגד שיעבוד הרכב שלך — ללא בירוקרטיה, ללא המתנה, עם תשובה תוך שעות</p>
-      <div class="hero-btns">
-        <button class="btn-primary pulse" onclick="scrollToContact()">קבל הצעה עכשיו ←</button>
-        <button class="btn-ghost" onclick="scrollTo('how')">איך זה עובד?</button>
+    <div class="hero-noise"></div>
+    <div class="hero-glow g1"></div>
+    <div class="hero-glow g2"></div>
+
+    <div class="hero-body">
+      <div class="hero-left reveal">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          מימון מהיר ומקצועי
+        </div>
+        <h1>
+          הרכב שלך<br>
+          <em>שווה יותר</em><br>
+          ממה שחשבת
+        </h1>
+        <p>קבל הלוואה כנגד שיעבוד הרכב — תוך 24 שעות, ללא בירוקרטיה, עם תנאים שמותאמים בדיוק לך</p>
+        <div class="hero-actions">
+          <button class="cta-main" onclick="scrollToContact()">
+            קבל הצעה עכשיו
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <a href="#how" class="cta-ghost">איך זה עובד?</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1l1.7 3.5 3.8.55-2.75 2.68.65 3.78L7.5 9.7 4.1 11.51l.65-3.78L2 5.05l3.8-.55L7.5 1z" fill="#C9A84C"/></svg>
+            <span>500+ לקוחות מרוצים</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1l1.7 3.5 3.8.55-2.75 2.68.65 3.78L7.5 9.7 4.1 11.51l.65-3.78L2 5.05l3.8-.55L7.5 1z" fill="#C9A84C"/></svg>
+            <span>8 שנות ניסיון</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1l1.7 3.5 3.8.55-2.75 2.68.65 3.78L7.5 9.7 4.1 11.51l.65-3.78L2 5.05l3.8-.55L7.5 1z" fill="#C9A84C"/></svg>
+            <span>98% שביעות רצון</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal-right">
+        <div class="premium-card">
+          <div class="pc-header">
+            <div class="pc-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1" y="5" width="20" height="14" rx="3" stroke="#C9A84C" stroke-width="1.5"/><path d="M1 9h20" stroke="#C9A84C" stroke-width="1.5"/><rect x="4" y="13" width="4" height="2" rx="1" fill="#C9A84C"/></svg>
+            </div>
+            <div>
+              <div class="pc-title">הלוואת רכב פרמיום</div>
+              <div class="pc-sub">אישור מהיר ותנאים מובילים</div>
+            </div>
+            <div class="pc-badge">ACTIVE</div>
+          </div>
+          <div class="pc-amount">
+            <div class="pc-amount-label">סכום מקסימלי</div>
+            <div class="pc-amount-val">₪<span id="heroCounter">0</span></div>
+          </div>
+          <div class="pc-rows">
+            <div class="pc-row">
+              <span>אישור ראשוני</span>
+              <span class="pc-green">✓ תוך שעות</span>
+            </div>
+            <div class="pc-row">
+              <span>העברה לחשבון</span>
+              <span class="pc-green">✓ עד 24 שעות</span>
+            </div>
+            <div class="pc-row">
+              <span>תנאים</span>
+              <span class="pc-gold">מותאמים אישית</span>
+            </div>
+          </div>
+          <button class="pc-cta" onclick="scrollToContact()">בדוק זכאות ←</button>
+        </div>
       </div>
     </div>
-    <div class="hero-card reveal-delay">
-      <div class="card-row"><span class="card-label">סכום הלוואה</span><span class="card-val">עד ₪200,000</span></div>
-      <div class="card-divider"></div>
-      <div class="card-row"><span class="card-label">אישור ראשוני</span><span class="card-val green">תוך שעות</span></div>
-      <div class="card-divider"></div>
-      <div class="card-row"><span class="card-label">הכסף בחשבון</span><span class="card-val green">תוך 24 שעות</span></div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>גלול</span>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="stats-strip" id="stats">
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="500">0</div>
-      <div class="stat-plus">+</div>
-      <div class="stat-label">לקוחות מרוצים</div>
+  <div class="stats-bar">
+    <div class="stat reveal">
+      <div class="stat-val"><span data-target="500">0</span>+</div>
+      <div class="stat-lbl">לקוחות מרוצים</div>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="8">0</div>
-      <div class="stat-plus">+</div>
-      <div class="stat-label">שנות ניסיון</div>
+    <div class="stat-sep"></div>
+    <div class="stat reveal">
+      <div class="stat-val">₪<span data-target="200">0</span>K</div>
+      <div class="stat-lbl">עד סכום הלוואה</div>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="98">0</div>
-      <div class="stat-plus">%</div>
-      <div class="stat-label">שביעות רצון</div>
+    <div class="stat-sep"></div>
+    <div class="stat reveal">
+      <div class="stat-val"><span data-target="98">0</span>%</div>
+      <div class="stat-lbl">שביעות רצון</div>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="24">0</div>
-      <div class="stat-plus">ש'</div>
-      <div class="stat-label">עד כסף בחשבון</div>
+    <div class="stat-sep"></div>
+    <div class="stat reveal">
+      <div class="stat-val"><span data-target="8">0</span>+</div>
+      <div class="stat-lbl">שנות ניסיון</div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="how">
+    <div class="container">
+      <div class="section-eyebrow reveal">התהליך</div>
+      <h2 class="section-h2 reveal">שלושה צעדים<br><span class="gold">לכסף בחשבון</span></h2>
+
+      <div class="process-timeline">
+        <div class="process-line"></div>
+        <div class="process-step reveal">
+          <div class="ps-num">01</div>
+          <div class="ps-icon">📋</div>
+          <h3>ממלאים טופס</h3>
+          <p>פרטים בסיסיים על הרכב וסכום ההלוואה הרצוי — פחות מדקה</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="ps-num">02</div>
+          <div class="ps-icon">⚡</div>
+          <h3>אישור מהיר</h3>
+          <p>נציג אישי חוזר אליך תוך שעות עם הצעה מותאמת ומפורטת</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="ps-num">03</div>
+          <div class="ps-icon">💳</div>
+          <h3>כסף בחשבון</h3>
+          <p>חותמים על הסכם — הכסף מועבר לחשבונך תוך 24 שעות</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section" id="how">
-    <div class="section-label">התהליך</div>
-    <div class="section-title reveal">איך זה עובד?</div>
-    <div class="steps">
-      <div class="step-card reveal">
-        <div class="step-icon">📋</div>
-        <div class="step-num">1</div>
-        <h3>ממלאים טופס</h3>
-        <p>ממלאים פרטים בסיסיים על הרכב ועל סכום ההלוואה הרצוי — לוקח פחות מדקה</p>
-      </div>
-      <div class="step-arrow reveal">←</div>
-      <div class="step-card reveal">
-        <div class="step-icon">⚡</div>
-        <div class="step-num">2</div>
-        <h3>אישור מהיר</h3>
-        <p>נציג שלנו חוזר אליך תוך שעות ספורות עם הצעה מותאמת אישית</p>
-      </div>
-      <div class="step-arrow reveal">←</div>
-      <div class="step-card reveal">
-        <div class="step-icon">💰</div>
-        <div class="step-num">3</div>
-        <h3>כסף בחשבון</h3>
-        <p>לאחר חתימה על הסכם — הכסף מועבר לחשבונך תוך 24 שעות</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="why-section">
-    <div class="section-label">למה אנחנו?</div>
-    <div class="section-title reveal">היתרונות שלנו</div>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-icon">🔒</div>
-        <h3>בטוח ומוסדר</h3>
-        <p>פועלים בהתאם לכל דרישות הרגולציה, שקיפות מלאה בכל שלב</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-icon">⚡</div>
-        <h3>תהליך מהיר</h3>
-        <p>ללא בירוקרטיה מיותרת — מרגע הפנייה ועד קבלת הכסף תוך יום</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-icon">🎯</div>
-        <h3>תנאים מותאמים</h3>
-        <p>כל הצעה בנויה אישית על פי הרכב שלך וצרכי המימון שלך</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-icon">🤝</div>
-        <h3>ליווי אישי</h3>
-        <p>נציג אישי ילווה אותך לאורך כל התהליך ויענה על כל שאלה</p>
+  <!-- WHY -->
+  <section class="why-section" id="why">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-left reveal">
+          <div class="section-eyebrow light">למה אנחנו?</div>
+          <h2 class="section-h2 white">הסטנדרט<br>הגבוה ביותר<br>במימון רכב</h2>
+          <p class="why-desc">אנחנו לא בנק, לא חברת ביטוח — אנחנו שותפים שלך. כל תהליך בנוי סביב הצרכים שלך, לא סביב הנוחות שלנו.</p>
+          <button class="cta-main" onclick="scrollToContact()">מעניין אותי ←</button>
+        </div>
+        <div class="why-right">
+          <div class="why-card reveal">
+            <div class="wc-num">01</div>
+            <div class="wc-icon">🔒</div>
+            <h4>בטוח ומפוקח</h4>
+            <p>פועלים תחת כל הרגולציות הרלוונטיות, שקיפות מלאה בכל שלב</p>
+          </div>
+          <div class="why-card reveal">
+            <div class="wc-num">02</div>
+            <div class="wc-icon">🎯</div>
+            <h4>תנאים מותאמים</h4>
+            <p>כל הצעה נבנית אישית עבורך לפי שווי הרכב והצרכים שלך</p>
+          </div>
+          <div class="why-card reveal">
+            <div class="wc-num">03</div>
+            <div class="wc-icon">🤝</div>
+            <h4>ליווי אישי</h4>
+            <p>נציג ייעודי לכל לקוח, זמין לאורך כל התהליך ואחריו</p>
+          </div>
+          <div class="why-card reveal">
+            <div class="wc-num">04</div>
+            <div class="wc-icon">⚡</div>
+            <h4>מהירות מקסימלית</h4>
+            <p>ללא עמלות נסתרות, ללא המתנות — תהליך יעיל ומהיר</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- REVIEWS -->
   <section class="reviews-section" id="reviews">
-    <div class="section-label">ביקורות</div>
-    <div class="section-title reveal">מה אומרים הלקוחות שלנו</div>
-    <div class="reviews-grid">
-      <div class="review-card reveal">
-        <div class="stars">★★★★★</div>
-        <p>"תהליך מהיר ופשוט. קיבלתי את הכסף תוך יום אחד. שירות מעולה!"</p>
-        <div class="reviewer-row">
-          <div class="avatar">ד</div>
-          <div class="reviewer">דוד כהן</div>
+    <div class="container">
+      <div class="section-eyebrow reveal">לקוחות מספרים</div>
+      <h2 class="section-h2 reveal">הם כבר<br><span class="gold">עשו את הצעד</span></h2>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="quote-mark">"</div>
+          <p>תהליך מהיר ופשוט. קיבלתי את הכסף תוך יום אחד. שירות מעולה — ממליץ בחום!</p>
+          <div class="rc-footer">
+            <div class="rc-avatar">ד</div>
+            <div class="rc-info">
+              <div class="rc-name">דוד כהן</div>
+              <div class="rc-stars">★★★★★</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="review-card reveal featured">
-        <div class="featured-tag">⭐ ביקורת מומלצת</div>
-        <div class="stars">★★★★★</div>
-        <p>"הנציג היה מקצועי ועזר לי בכל שלב. ממליץ בחום לכל מי שצריך מימון מהיר ובלי כאב ראש."</p>
-        <div class="reviewer-row">
-          <div class="avatar">ר</div>
-          <div class="reviewer">רחל לוי</div>
+        <div class="review-card featured reveal">
+          <div class="quote-mark gold-q">"</div>
+          <p>הנציג שלהם היה מקצועי ברמות. עזר לי בכל שלב, הסביר הכל בסבלנות. לא ציפיתי לשירות כזה.</p>
+          <div class="rc-footer">
+            <div class="rc-avatar gold-av">ר</div>
+            <div class="rc-info">
+              <div class="rc-name">רחל לוי</div>
+              <div class="rc-stars">★★★★★</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="review-card reveal">
-        <div class="stars">★★★★★</div>
-        <p>"פנייה פשוטה, תגובה מהירה ותנאים טובים. בדיוק מה שהייתי צריך בזמן הנכון."</p>
-        <div class="reviewer-row">
-          <div class="avatar">מ</div>
-          <div class="reviewer">משה אברהם</div>
+        <div class="review-card reveal">
+          <div class="quote-mark">"</div>
+          <p>פנייה פשוטה, תגובה מהירה ותנאים מצוינים. בדיוק מה שהייתי צריך בזמן הנכון.</p>
+          <div class="rc-footer">
+            <div class="rc-avatar">מ</div>
+            <div class="rc-info">
+              <div class="rc-name">משה אברהם</div>
+              <div class="rc-stars">★★★★★</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="cta-banner-noise"></div>
+    <div class="cta-banner-inner reveal">
+      <h2>מוכן לעשות את הצעד?</h2>
+      <p>השאר פרטים ונחזור אליך תוך שעות עם הצעה מותאמת אישית</p>
+      <button class="cta-main light" onclick="scrollToContact()">
+        קבל הצעה עכשיו
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
   <!-- CONTACT -->
   <section class="contact-section" id="contact">
-    <div class="contact-inner">
-      <div class="contact-info reveal">
-        <div class="section-label light">צור קשר</div>
-        <h2>קבל הצעה<br>מותאמת אישית</h2>
-        <p>מלא את הטופס ונציג שלנו יחזור אליך תוך שעות ספורות עם הצעה מפורטת</p>
-        <div class="contact-points">
-          <div class="contact-point">📞 זמינים ראשון–שישי, 08:00–20:00</div>
-          <div class="contact-point">⚡ תגובה תוך שעות</div>
-          <div class="contact-point">🔒 פרטיותך שמורה</div>
+    <div class="contact-wrap">
+      <div class="contact-left reveal">
+        <div class="section-eyebrow">צור קשר</div>
+        <h2 class="section-h2">קבל הצעה<br>מותאמת אישית</h2>
+        <p>מלא את הטופס ונציג שלנו יחזור אליך תוך שעות עם הצעה מפורטת וללא כל התחייבות</p>
+        <div class="contact-meta">
+          <div class="cm-item">
+            <div class="cm-icon">📞</div>
+            <div>
+              <div class="cm-label">שעות פעילות</div>
+              <div class="cm-val">ראשון–שישי, 08:00–20:00</div>
+            </div>
+          </div>
+          <div class="cm-item">
+            <div class="cm-icon">⚡</div>
+            <div>
+              <div class="cm-label">זמן תגובה</div>
+              <div class="cm-val">עד 3 שעות בימי עסקים</div>
+            </div>
+          </div>
+          <div class="cm-item">
+            <div class="cm-icon">🔒</div>
+            <div>
+              <div class="cm-label">פרטיות</div>
+              <div class="cm-val">פרטייך מוגנים ולא יועברו לצד ג'</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="contact-form-wrap reveal">
-        <form id="contactForm" onsubmit="handleSubmit(event)">
+
+      <div class="contact-right reveal">
+        <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
           <div class="form-row">
-            <div class="field">
-              <label>שם מלא</label>
-              <input type="text" id="fname" placeholder="ישראל ישראלי" />
-              <span class="field-err" id="err-fname"></span>
+            <div class="fld">
+              <label>שם מלא <span class="req">*</span></label>
+              <input type="text" id="fname" placeholder="ישראל ישראלי" autocomplete="name" />
+              <span class="ferr" id="err-fname"></span>
             </div>
-            <div class="field">
-              <label>טלפון</label>
-              <input type="tel" id="fphone" placeholder="05X-XXXXXXX" />
-              <span class="field-err" id="err-fphone"></span>
+            <div class="fld">
+              <label>טלפון <span class="req">*</span></label>
+              <input type="tel" id="fphone" placeholder="05X-XXXXXXX" autocomplete="tel" />
+              <span class="ferr" id="err-fphone"></span>
             </div>
           </div>
           <div class="form-row">
-            <div class="field">
-              <label>דגם הרכב</label>
-              <input type="text" id="fcar" placeholder="לדוגמה: טויוטה קורולה 2019" />
-              <span class="field-err" id="err-fcar"></span>
+            <div class="fld">
+              <label>דגם הרכב <span class="req">*</span></label>
+              <input type="text" id="fcar" placeholder="טויוטה קורולה 2020" />
+              <span class="ferr" id="err-fcar"></span>
             </div>
-            <div class="field">
-              <label>סכום הלוואה רצוי (₪)</label>
-              <input type="number" id="famount" placeholder="50,000" min="5000" />
-              <span class="field-err" id="err-famount"></span>
+            <div class="fld">
+              <label>סכום הלוואה רצוי (₪) <span class="req">*</span></label>
+              <input type="number" id="famount" placeholder="50,000" min="5000" max="200000" />
+              <span class="ferr" id="err-famount"></span>
             </div>
           </div>
-          <div class="field full">
+          <div class="fld" style="margin-bottom:20px">
             <label>הערות נוספות</label>
             <textarea id="fnotes" placeholder="כל פרט נוסף שיעזור לנו להתאים את ההצעה..." rows="4"></textarea>
           </div>
-          <button type="submit" class="btn-submit" id="submitBtn">
-            <span id="submitText">שלח פנייה ←</span>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <span id="submitText">שלח פנייה</span>
+            <span id="submitArrow">←</span>
             <span id="submitSpinner" class="spinner hidden"></span>
           </button>
+          <p class="form-note">* שדות חובה. לחיצה על שלח מהווה הסכמה למדיניות הפרטיות שלנו.</p>
         </form>
       </div>
     </div>
@@ -214,22 +339,35 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo">נקודת זינוק 🚗</div>
-      <div class="footer-links">
-        <a href="#how">איך זה עובד?</a>
-        <a href="#reviews">ביקורות</a>
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-mark small">NZ</span>
+          <span>נקודת זינוק</span>
+        </div>
+        <p>פתרון מימון מהיר ומקצועי<br>כנגד שיעבוד רכב</p>
+      </div>
+      <div class="footer-nav">
+        <a href="#how">תהליך</a>
+        <a href="#why">יתרונות</a>
+        <a href="#reviews">לקוחות</a>
         <a href="#contact">צור קשר</a>
       </div>
-      <div class="footer-copy">© 2025 נקודת זינוק בע"מ | כל הזכויות שמורות</div>
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <span>© 2025 נקודת זינוק בע"מ | כל הזכויות שמורות</span>
+      </div>
     </div>
   </footer>
 
-  <!-- SUCCESS TOAST -->
+  <!-- TOAST -->
   <div class="toast" id="toast">
-    <span class="toast-icon">✅</span>
-    <span>הפנייה נשלחה בהצלחה! ניצור איתך קשר בקרוב.</span>
+    <div class="toast-icon">✓</div>
+    <div>
+      <div class="toast-title">הפנייה נשלחה!</div>
+      <div class="toast-sub">ניצור איתך קשר בהקדם.</div>
+    </div>
   </div>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
