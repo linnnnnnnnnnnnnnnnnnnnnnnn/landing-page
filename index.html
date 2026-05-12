@@ -4,102 +4,232 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>נקודת זינוק — הלוואה כנגד שיעבוד רכב</title>
-  <link rel="stylesheet" href="style.css?v=3">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; direction: rtl; }
-    .hero { background: #0d2d5e; color: white; padding: 60px 40px; text-align: center; }
-    .hero h1 { font-size: 36px; font-weight: 500; margin-bottom: 12px; }
-    .hero p { font-size: 18px; color: #7ec8e3; margin-bottom: 28px; }
-    .btn-main { background: #1a8fc1; color: white; border: none; padding: 14px 36px; border-radius: 8px; font-size: 16px; cursor: pointer; }
-    .section { padding: 48px 40px; }
-    .section-title { font-size: 22px; font-weight: 500; color: #0d2d5e; margin-bottom: 32px; text-align: center; }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .step-card { background: #f0f8ff; border: 1px solid #b5d4f4; border-radius: 12px; padding: 24px; text-align: center; }
-    .step-num { width: 40px; height: 40px; border-radius: 50%; background: #0d2d5e; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; margin: 0 auto 12px; }
-    .step-card h3 { font-size: 15px; font-weight: 500; color: #0d2d5e; margin-bottom: 8px; }
-    .step-card p { font-size: 13px; color: #444; line-height: 1.6; }
-    .reviews { background: #f7fbff; padding: 48px 40px; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .review-card { background: white; border: 1px solid #b5d4f4; border-radius: 12px; padding: 20px; }
-    .stars { color: #1a8fc1; font-size: 16px; margin-bottom: 8px; }
-    .review-card p { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 12px; }
-    .reviewer { font-size: 13px; font-weight: 500; color: #0d2d5e; }
-    .contact { padding: 48px 40px; background: #0d2d5e; }
-    .contact .section-title { color: white; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; margin: 0 auto; }
-    .form-grid input, .form-grid textarea { padding: 12px; border-radius: 8px; border: 1px solid #7ec8e3; font-size: 14px; font-family: Arial, sans-serif; }
-    .form-grid textarea { grid-column: 1 / -1; height: 100px; resize: none; }
-    .form-grid button { grid-column: 1 / -1; background: #1a8fc1; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 15px; cursor: pointer; }
-    .footer { background: #081d3d; color: #7ec8e3; text-align: center; padding: 20px; font-size: 13px; }
-  </style>
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
-  <div class="hero">
-    <h1>נקודת זינוק — הלוואה כנגד שיעבוד רכב</h1>
-    <p>פתרון מימון מהיר, בטוח ומקצועי — הרכב שלך הוא ההון שלך</p>
-    <button class="btn-main">קבל הצעה עכשיו</button>
-  </div>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">נקודת זינוק 🚗</div>
+      <div class="nav-links">
+        <a href="#how">איך זה עובד?</a>
+        <a href="#stats">למה אנחנו?</a>
+        <a href="#reviews">ביקורות</a>
+        <a href="#contact" class="nav-cta">קבל הצעה</a>
+      </div>
+    </div>
+  </nav>
 
-  <div class="section">
-    <div class="section-title">איך זה עובד?</div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
+    </div>
+    <div class="hero-content reveal">
+      <div class="hero-badge">✦ מהיר · בטוח · מקצועי</div>
+      <h1>הרכב שלך<br><span class="accent">= הון מיידי</span></h1>
+      <p>קבל הלוואה כנגד שיעבוד הרכב שלך — ללא בירוקרטיה, ללא המתנה, עם תשובה תוך שעות</p>
+      <div class="hero-btns">
+        <button class="btn-primary pulse" onclick="scrollToContact()">קבל הצעה עכשיו ←</button>
+        <button class="btn-ghost" onclick="scrollTo('how')">איך זה עובד?</button>
+      </div>
+    </div>
+    <div class="hero-card reveal-delay">
+      <div class="card-row"><span class="card-label">סכום הלוואה</span><span class="card-val">עד ₪200,000</span></div>
+      <div class="card-divider"></div>
+      <div class="card-row"><span class="card-label">אישור ראשוני</span><span class="card-val green">תוך שעות</span></div>
+      <div class="card-divider"></div>
+      <div class="card-row"><span class="card-label">הכסף בחשבון</span><span class="card-val green">תוך 24 שעות</span></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-strip" id="stats">
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="500">0</div>
+      <div class="stat-plus">+</div>
+      <div class="stat-label">לקוחות מרוצים</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="8">0</div>
+      <div class="stat-plus">+</div>
+      <div class="stat-label">שנות ניסיון</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="98">0</div>
+      <div class="stat-plus">%</div>
+      <div class="stat-label">שביעות רצון</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-target="24">0</div>
+      <div class="stat-plus">ש'</div>
+      <div class="stat-label">עד כסף בחשבון</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="section-label">התהליך</div>
+    <div class="section-title reveal">איך זה עובד?</div>
     <div class="steps">
-      <div class="step-card">
+      <div class="step-card reveal">
+        <div class="step-icon">📋</div>
         <div class="step-num">1</div>
         <h3>ממלאים טופס</h3>
-        <p>ממלאים פרטים בסיסיים על הרכב ועל סכום ההלוואה הרצוי</p>
+        <p>ממלאים פרטים בסיסיים על הרכב ועל סכום ההלוואה הרצוי — לוקח פחות מדקה</p>
       </div>
-      <div class="step-card">
+      <div class="step-arrow reveal">←</div>
+      <div class="step-card reveal">
+        <div class="step-icon">⚡</div>
         <div class="step-num">2</div>
-        <h3>קבלת אישור מהיר</h3>
-        <p>נציג שלנו חוזר אליך תוך שעות ספורות עם הצעה מותאמת</p>
+        <h3>אישור מהיר</h3>
+        <p>נציג שלנו חוזר אליך תוך שעות ספורות עם הצעה מותאמת אישית</p>
       </div>
-      <div class="step-card">
+      <div class="step-arrow reveal">←</div>
+      <div class="step-card reveal">
+        <div class="step-icon">💰</div>
         <div class="step-num">3</div>
         <h3>כסף בחשבון</h3>
-        <p>לאחר חתימה על הסכם — הכסף מועבר לחשבונך במהירות</p>
+        <p>לאחר חתימה על הסכם — הכסף מועבר לחשבונך תוך 24 שעות</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="reviews">
-    <div class="section-title">מה אומרים הלקוחות שלנו</div>
+  <!-- WHY US -->
+  <section class="why-section">
+    <div class="section-label">למה אנחנו?</div>
+    <div class="section-title reveal">היתרונות שלנו</div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🔒</div>
+        <h3>בטוח ומוסדר</h3>
+        <p>פועלים בהתאם לכל דרישות הרגולציה, שקיפות מלאה בכל שלב</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">⚡</div>
+        <h3>תהליך מהיר</h3>
+        <p>ללא בירוקרטיה מיותרת — מרגע הפנייה ועד קבלת הכסף תוך יום</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🎯</div>
+        <h3>תנאים מותאמים</h3>
+        <p>כל הצעה בנויה אישית על פי הרכב שלך וצרכי המימון שלך</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🤝</div>
+        <h3>ליווי אישי</h3>
+        <p>נציג אישי ילווה אותך לאורך כל התהליך ויענה על כל שאלה</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-label">ביקורות</div>
+    <div class="section-title reveal">מה אומרים הלקוחות שלנו</div>
     <div class="reviews-grid">
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="stars">★★★★★</div>
-        <p>תהליך מהיר ופשוט. קיבלתי את הכסף תוך יום אחד. שירות מעולה!</p>
-        <div class="reviewer">— דוד כהן</div>
+        <p>"תהליך מהיר ופשוט. קיבלתי את הכסף תוך יום אחד. שירות מעולה!"</p>
+        <div class="reviewer-row">
+          <div class="avatar">ד</div>
+          <div class="reviewer">דוד כהן</div>
+        </div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal featured">
+        <div class="featured-tag">⭐ ביקורת מומלצת</div>
         <div class="stars">★★★★★</div>
-        <p>הנציג היה מקצועי ועזר לי בכל שלב. ממליץ בחום לכל מי שצריך מימון מהיר.</p>
-        <div class="reviewer">— רחל לוי</div>
+        <p>"הנציג היה מקצועי ועזר לי בכל שלב. ממליץ בחום לכל מי שצריך מימון מהיר ובלי כאב ראש."</p>
+        <div class="reviewer-row">
+          <div class="avatar">ר</div>
+          <div class="reviewer">רחל לוי</div>
+        </div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal">
         <div class="stars">★★★★★</div>
-        <p>פנייה פשוטה, תגובה מהירה ותנאים טובים. בדיוק מה שהייתי צריך.</p>
-        <div class="reviewer">— משה אברהם</div>
+        <p>"פנייה פשוטה, תגובה מהירה ותנאים טובים. בדיוק מה שהייתי צריך בזמן הנכון."</p>
+        <div class="reviewer-row">
+          <div class="avatar">מ</div>
+          <div class="reviewer">משה אברהם</div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="contact">
-    <div class="section-title">צור קשר</div>
-    <div class="form-grid">
-      <input type="text" placeholder="שם מלא" />
-      <input type="tel" placeholder="טלפון" />
-      <input type="text" placeholder="דגם הרכב ושנת ייצור" />
-      <input type="number" placeholder="סכום הלוואה רצוי (₪)" />
-      <textarea placeholder="הערות נוספות"></textarea>
-      <button>שלח פנייה</button>
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <div class="section-label light">צור קשר</div>
+        <h2>קבל הצעה<br>מותאמת אישית</h2>
+        <p>מלא את הטופס ונציג שלנו יחזור אליך תוך שעות ספורות עם הצעה מפורטת</p>
+        <div class="contact-points">
+          <div class="contact-point">📞 זמינים ראשון–שישי, 08:00–20:00</div>
+          <div class="contact-point">⚡ תגובה תוך שעות</div>
+          <div class="contact-point">🔒 פרטיותך שמורה</div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="field">
+              <label>שם מלא</label>
+              <input type="text" id="fname" placeholder="ישראל ישראלי" />
+              <span class="field-err" id="err-fname"></span>
+            </div>
+            <div class="field">
+              <label>טלפון</label>
+              <input type="tel" id="fphone" placeholder="05X-XXXXXXX" />
+              <span class="field-err" id="err-fphone"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label>דגם הרכב</label>
+              <input type="text" id="fcar" placeholder="לדוגמה: טויוטה קורולה 2019" />
+              <span class="field-err" id="err-fcar"></span>
+            </div>
+            <div class="field">
+              <label>סכום הלוואה רצוי (₪)</label>
+              <input type="number" id="famount" placeholder="50,000" min="5000" />
+              <span class="field-err" id="err-famount"></span>
+            </div>
+          </div>
+          <div class="field full">
+            <label>הערות נוספות</label>
+            <textarea id="fnotes" placeholder="כל פרט נוסף שיעזור לנו להתאים את ההצעה..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span id="submitText">שלח פנייה ←</span>
+            <span id="submitSpinner" class="spinner hidden"></span>
+          </button>
+        </form>
+      </div>
     </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">נקודת זינוק 🚗</div>
+      <div class="footer-links">
+        <a href="#how">איך זה עובד?</a>
+        <a href="#reviews">ביקורות</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+      <div class="footer-copy">© 2025 נקודת זינוק בע"מ | כל הזכויות שמורות</div>
+    </div>
+  </footer>
+
+  <!-- SUCCESS TOAST -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✅</span>
+    <span>הפנייה נשלחה בהצלחה! ניצור איתך קשר בקרוב.</span>
   </div>
 
-  <div class="footer">
-    © 2025 נקודת זינוק בע"מ | כל הזכויות שמורות
-  </div>
-
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
