@@ -3,19 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>הדף שלי</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <title>נקודת זינוק — הלוואה כנגד שיעבוד רכב</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; direction: rtl; }
+    .hero { background: #0d2d5e; color: white; padding: 60px 40px; text-align: center; }
+    .hero h1 { font-size: 36px; font-weight: 500; margin-bottom: 12px; }
+    .hero p { font-size: 18px; color: #7ec8e3; margin-bottom: 28px; }
+    .btn-main { background: #1a8fc1; color: white; border: none; padding: 14px 36px; border-radius: 8px; font-size: 16px; cursor: pointer; }
+    .section { padding: 48px 40px; }
+    .section-title { font-size: 22px; font-weight: 500; color: #0d2d5e; margin-bottom: 32px; text-align: center; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step-card { background: #f0f8ff; border: 1px solid #b5d4f4; border-radius: 12px; padding: 24px; text-align: center; }
+    .step-num { width: 40px; height: 40px; border-radius: 50%; background: #0d2d5e; color: white; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; margin: 0 auto 12px; }
+    .step-card h3 { font-size: 15px; font-weight: 500; color: #0d2d5e; margin-bottom: 8px; }
+    .step-card p { font-size: 13px; color: #444; line-height: 1.6; }
+    .reviews { background: #f7fbff; padding: 48px 40px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .review-card { background: white; border: 1px solid #b5d4f4; border-radius: 12px; padding: 20px; }
+    .stars { color: #1a8fc1; font-size: 16px; margin-bottom: 8px; }
+    .review-card p { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 12px; }
+    .reviewer { font-size: 13px; font-weight: 500; color: #0d2d5e; }
+    .contact { padding: 48px 40px; background: #0d2d5e; }
+    .contact .section-title { color: white; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; margin: 0 auto; }
+    .form-grid input, .form-grid textarea { padding: 12px; border-radius: 8px; border: 1px solid #7ec8e3; font-size: 14px; font-family: Arial, sans-serif; }
+    .form-grid textarea { grid-column: 1 / -1; height: 100px; resize: none; }
+    .form-grid button { grid-column: 1 / -1; background: #1a8fc1; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 15px; cursor: pointer; }
+    .footer { background: #081d3d; color: #7ec8e3; text-align: center; padding: 20px; font-size: 13px; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>שלום עולם</h1>
-    <p>ברווווכים הבאיייים לאתר שלי</p>
-    <a href="#contact" class="btn">צור קשר</a>
-  </header>
-  <section id="contact">
-    <h2>צור קשר</h2>
-    <p>אימייל: linmoshe12345@gmail.com</p>
-  </section>
-  <script src="script.js?v=2"></script>
+
+  <div class="hero">
+    <h1>נקודת זינוק — הלוואה כנגד שיעבוד רכב</h1>
+    <p>פתרון מימון מהיר, בטוח ומקצועי — הרכב שלך הוא ההון שלך</p>
+    <button class="btn-main">קבל הצעה עכשיו</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">איך זה עובד?</div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>ממלאים טופס</h3>
+        <p>ממלאים פרטים בסיסיים על הרכב ועל סכום ההלוואה הרצוי</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>קבלת אישור מהיר</h3>
+        <p>נציג שלנו חוזר אליך תוך שעות ספורות עם הצעה מותאמת</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>כסף בחשבון</h3>
+        <p>לאחר חתימה על הסכם — הכסף מועבר לחשבונך במהירות</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews">
+    <div class="section-title">מה אומרים הלקוחות שלנו</div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>תהליך מהיר ופשוט. קיבלתי את הכסף תוך יום אחד. שירות מעולה!</p>
+        <div class="reviewer">— דוד כהן</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>הנציג היה מקצועי ועזר לי בכל שלב. ממליץ בחום לכל מי שצריך מימון מהיר.</p>
+        <div class="reviewer">— רחל לוי</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>פנייה פשוטה, תגובה מהירה ותנאים טובים. בדיוק מה שהייתי צריך.</p>
+        <div class="reviewer">— משה אברהם</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <div class="section-title">צור קשר</div>
+    <div class="form-grid">
+      <input type="text" placeholder="שם מלא" />
+      <input type="tel" placeholder="טלפון" />
+      <input type="text" placeholder="דגם הרכב ושנת ייצור" />
+      <input type="number" placeholder="סכום הלוואה רצוי (₪)" />
+      <textarea placeholder="הערות נוספות"></textarea>
+      <button>שלח פנייה</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 נקודת זינוק בע"מ | כל הזכויות שמורות
+  </div>
+
+  <script src="script.js?v=3"></script>
 </body>
 </html>
